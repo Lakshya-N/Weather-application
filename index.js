@@ -6,8 +6,7 @@ import axios from "axios";
 const app=express();
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static("public"));
-const key='9bae96c99dddc563508fd102488efbeb'
-
+const key = "YOUR_API_KEY";
 
 app.get("/",(req,res)=>{
     res.render("index.ejs");
