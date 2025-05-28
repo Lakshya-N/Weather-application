@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+   
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap"
+      rel="stylesheet"
+    />
+    
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+      <div class="container">
+        <div class="search-container">
+          <form action="/" method="post">
+            <input
+            type="text"
+            placeholder="Enter a city name."
+            id="city"
+            name="loc"
+          />
+          <button type="submit" name="loc" id="search-btn">Search</button>
+          </form>
+          <%if(locals.exists){%>
+          <div id="result">
+            <h2><%=city%></h2>
+            <h4 class="weather"><%=weather%></h4>
+            <h4 class="desc"><%=desc%></h4>
+            <img src="<%=icon%>">
+
+            <h1><%=temp%>°C</h1>
+            
+            <div class="temp-container">
+                <div>
+                    <h4 class="title">min</h4>
+                    <h4 class="temp"><%=min%>°C</h4>
+                </div>
+                <div>
+                    <h4 class="title">max</h4>
+                    <h4 class="temp"><%=max%>°C</h4>
+                </div>
+            </div>
+          </div>
+         
+          <% } else if (typeof error !== 'undefined') { %>
+            <div class="error-message">
+              <h2><%= error %></h2>
+            </div>
+          <% } %>
+        </div>
+      </div>
+      </div>
+      
+
+    
+  </body>
+</html>
